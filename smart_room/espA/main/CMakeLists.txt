@@ -1,0 +1,31 @@
+idf_component_register(
+    SRCS
+        "main.c"
+        "app_state.c"
+        "admin_control/admin.c"
+        "mqtt/mqtt.c"
+        "rfid/rfid.c"
+        "sd_card/sd_card.c"
+        "student_auth/auth.c"
+        "time_mng/time_mng.c"
+        "wifi/wifi.c"
+    INCLUDE_DIRS
+        "."
+        "admin_control"
+        "mqtt"
+        "rfid"
+        "sd_card"
+        "student_auth"
+        "time_mng"
+        "wifi"
+    REQUIRES
+        rc522
+        mqtt
+        esp_wifi
+        esp_event
+        esp_netif
+        nvs_flash
+        fatfs
+        sdmmc
+        driver
+)

@@ -1,0 +1,37 @@
+{
+  "version": 1,
+  "author": "Amir Kabejja",
+  "editor": "wokwi",
+  "parts": [
+    {
+      "type": "board-esp32-s3-devkitc-1",
+      "id": "esp",
+      "top": 124.62,
+      "left": 4.57,
+      "attrs": { "builder": "esp-idf" }
+    },
+    { "type": "wokwi-rgb-led", "id": "rgb1", "top": -53.6, "left": 97.1, "attrs": {} },
+    { "type": "board-mfrc522", "id": "rfid1", "top": -41.05, "left": 195.44, "attrs": {} },
+    { "type": "wokwi-microsd-card", "id": "sd1", "top": -9.37, "left": -67.13, "attrs": {} },
+    { "type": "wokwi-vcc", "id": "vcc1", "top": -56.84, "left": 57.6, "attrs": {} },
+    { "type": "wokwi-gnd", "id": "gnd1", "top": 67.2, "left": 57, "attrs": {} }
+  ],
+  "connections": [
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
+    [ "rfid1:3.3V", "vcc1:VCC", "green", [ "h-19.2", "v-48", "h-115.2" ] ],
+    [ "sd1:VCC", "vcc1:VCC", "red", [ "h0" ] ],
+    [ "sd1:GND", "gnd1:GND", "black", [ "h0" ] ],
+    [ "rfid1:GND", "gnd1:GND", "black", [ "h0" ] ],
+    [ "rfid1:SDA", "esp:2", "green", [ "h-76.8", "v192" ] ],
+    [ "rfid1:SCK", "esp:3", "green", [ "h-57.6", "v86.4", "h-153.6", "v172.8" ] ],
+    [ "rfid1:MOSI", "esp:4", "green", [ "h-96", "v96", "h-124.8", "v67.2" ] ],
+    [ "rfid1:MISO", "esp:5", "green", [ "h-38.4", "v86.4", "h-192", "v76.8" ] ],
+    [ "rfid1:RST", "esp:6", "green", [ "h-163.2", "v38.4", "h-86.4", "v115.2" ] ],
+    [ "sd1:CS", "esp:7", "green", [ "h19.2", "v28.86", "h-105.6", "v134.4" ] ],
+    [ "sd1:SCK", "esp:3", "green", [ "h28.8", "v-48.01", "h-144", "v268.8" ] ],
+    [ "sd1:DO", "esp:5", "green", [ "h19.2", "v-38.29", "h-163.2", "v220.8" ] ],
+    [ "sd1:DI", "esp:4", "green", [ "h9.6", "v28.71", "h-115.2", "v96" ] ]
+  ],
+  "dependencies": {}
+}
